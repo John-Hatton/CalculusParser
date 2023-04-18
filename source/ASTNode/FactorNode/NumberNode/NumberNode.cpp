@@ -6,7 +6,8 @@
 
 
 template<typename T>
-NumberNode<T>::NumberNode(Token token, T value) : FactorNode(std::move(token), FactorType::NUMBER), value(value) {}
+NumberNode<T>::NumberNode(Token token, T value) : FactorNode(std::move(token), FactorType::NUMBER,
+                                                             Token(token.getType(), token.getLexeme())), value(value) {}
 
 
 

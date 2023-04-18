@@ -2,20 +2,22 @@
 // Created by John on 4/17/2023.
 //
 
-#include "ASTNode/FactorNode/FactorNode.h"
-FactorNode::FactorNode(std::shared_ptr<ASTNode> child)
-        : ASTNode(Token(TokenType::FACTOR)) {
+#include <utility>
 
+#include "ASTNode/FactorNode/FactorNode.h"
+FactorNode::FactorNode(std::shared_ptr<ASTNode> child, Token myToken)
+        : ASTNode(Token(child->getTokenType())), myToken(myToken) {
     arguments.push_back(child);
 }
-FactorNode::FactorNode(Token token, FactorType factorType)
-        : ASTNode(std::move(token)), factorType(factorType) {}
+FactorNode::FactorNode(Token token, FactorType factorType, Token myToken)
+        : ASTNode(std::move(token)), factorType(factorType), myToken(myToken) {}
 
-FactorNode::FactorNode(const FactorNode& other)
-        : ASTNode(other), factorType(other.factorType), arguments(other.arguments) {}
+FactorNode::FactorNode(const FactorNode &other, Token myToken)
+        : ASTNode(other), factorType(other.factorType), arguments(other.arguments), myToken(myToken) {}
 
-FactorNode::FactorNode(FactorNode&& other) noexcept
-        : ASTNode(std::move(other)), factorType(other.factorType), arguments(std::move(other.arguments)) {}
+FactorNode::FactorNode(FactorNode &&other, Token myToken) noexcept
+        : ASTNode(std::move(other)), factorType(other.factorType), arguments(std::move(other.arguments)),
+          myToken(myToken) {}
 
 FactorNode& FactorNode::operator=(const FactorNode& other) {
     if (this != &other) {
@@ -79,6 +81,14 @@ std::string FactorNode::toString() const {
 
 void FactorNode::addArgument(std::shared_ptr<ASTNode> argument) {
     arguments.push_back(std::move(argument));
+}
+
+Token FactorNode::getMyToken() const {
+    return myToken;
+}
+
+void FactorNode::setMyToken(Token myToken) {
+    FactorNode::myToken = std::move(myToken);
 }
 
 template<typename T>

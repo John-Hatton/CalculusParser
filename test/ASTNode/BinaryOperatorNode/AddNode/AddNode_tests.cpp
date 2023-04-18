@@ -16,9 +16,9 @@ TEST(AddNodeTest, Evaluate) {
 
     // Create FactorNode objects for the factors
 
-    auto factor1 = std::make_shared<FactorNode>(num1);
-    auto factor2 = std::make_shared<FactorNode>(num2);
-    auto factor3 = std::make_shared<FactorNode>(num3);
+    auto factor1 = std::make_shared<FactorNode>(num1, num1->getToken());
+    auto factor2 = std::make_shared<FactorNode>(num2, num2->getToken());
+    auto factor3 = std::make_shared<FactorNode>(num3, num2->getToken());
 
 
     // Create an AddNode object with two integer factors
@@ -37,7 +37,7 @@ TEST(AddNodeTest, Evaluate) {
 
     // Evaluate Function does not work yet...
 
-    auto myVal = addNode1->getLeftChild();
+    auto myVal = addNode1->toString();
 
     EXPECT_EQ(addNode1->toString(), "2+3");
 

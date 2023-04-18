@@ -17,21 +17,4 @@ private:
     std::string name;
 };
 
-/**
- * Constructor for the VariableNode class.
- *
- * @param token The token associated with the variable.
- * @param name The name of the variable.
- */
-VariableNode::VariableNode(Token token, std::string name) : FactorNode(std::move(token), FactorType::VARIABLE), name(std::move(name)) {}
-
-/**
- * Gets the name of the variable.
- *
- * @return The name of the variable.
- */
-std::string VariableNode::getName() const {
-    return name;
-}
-
 #endif //CALCULUSPARSER_VARIABLENODE_H

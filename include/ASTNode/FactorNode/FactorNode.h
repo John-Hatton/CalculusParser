@@ -16,18 +16,18 @@ public:
     };
 
     // Constructor that takes a token and a factor type
-    FactorNode(Token token, FactorType factorType);
+    FactorNode(Token token, FactorType factorType, Token myToken);
 
-    FactorNode(std::shared_ptr<ASTNode> child);
+    FactorNode(std::shared_ptr<ASTNode> child, Token myToken);
 
     // Destructor (defaulted)
     virtual ~FactorNode() = default;
 
     // Copy constructor
-    FactorNode(const FactorNode& other);
+    FactorNode(const FactorNode &other, Token myToken);
 
     // Move constructor
-    FactorNode(FactorNode&& other) noexcept;
+    FactorNode(FactorNode &&other, Token myToken) noexcept;
 
     // Copy assignment operator
     FactorNode& operator=(const FactorNode& other);
@@ -53,10 +53,15 @@ public:
     template <typename T>
     T getValue();
 
+    Token getMyToken() const;
+
+    void setMyToken(Token myToken);
+
 
 
 private:
     FactorType factorType; // The factor type
+    Token myToken;
     std::vector<std::shared_ptr<ASTNode>> arguments; // Arguments for functions and sub-expressions
 };
 

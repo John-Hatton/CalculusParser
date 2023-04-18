@@ -30,7 +30,7 @@ public:
     BinaryOperatorNode(Token token, std::string symbol);
 
 
-    BinaryOperatorNode(std::shared_ptr<ASTNode> left, std::shared_ptr<ASTNode> right, Token myToken)
+    BinaryOperatorNode(std::shared_ptr<FactorNode> left, std::shared_ptr<FactorNode> right, Token myToken)
             : OperatorNode(myToken, myToken.getLexeme()), leftChild(std::move(left)), rightChild(std::move(right)) {}
     /**
      * @brief Default destructor for the BinaryOperatorNode class.
@@ -48,33 +48,33 @@ public:
      *
      * @param leftChild A shared pointer to the left child node.
      */
-    void setLeftChild(std::shared_ptr<ASTNode> leftChild);
+    void setLeftChild(std::shared_ptr<FactorNode> leftChild);
     /**
      * @brief Sets the right child node.
      *
      * @param rightChild A shared pointer to the right child node.
      */
-    void setRightChild(std::shared_ptr<ASTNode> rightChild);
+    void setRightChild(std::shared_ptr<FactorNode> rightChild);
     /**
      * @brief Returns a shared pointer to the left child node.
      *
      * @return A shared pointer to the left child node.
      */
-    std::shared_ptr<ASTNode> getLeftChild() const;
+    std::shared_ptr<FactorNode> getLeftChild() const;
     /**
      * @brief Returns a shared pointer to the right child node.
      *
      * @return A shared pointer to the right child node.
      */
-    std::shared_ptr<ASTNode> getRightChild() const;
+    std::shared_ptr<FactorNode> getRightChild() const;
 
 
     template <typename T>
     T evaluate() const;
 
 private:
-    std::shared_ptr<ASTNode> leftChild; /**< A shared pointer to the left child node. */
-    std::shared_ptr<ASTNode> rightChild; /**< A shared pointer to the right child node. */
+    std::shared_ptr<FactorNode> leftChild; /**< A shared pointer to the left child node. */
+    std::shared_ptr<FactorNode> rightChild; /**< A shared pointer to the right child node. */
 };
 
 #endif //CALCULUSPARSER_BINARYOPERATORNODE_H

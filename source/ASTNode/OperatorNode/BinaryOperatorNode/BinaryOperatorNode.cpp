@@ -19,19 +19,19 @@ std::vector<std::shared_ptr<ASTNode>> BinaryOperatorNode::getChildren() const {
     return children;
 }
 
-void BinaryOperatorNode::setLeftChild(std::shared_ptr<ASTNode> leftChild) {
+void BinaryOperatorNode::setLeftChild(std::shared_ptr<FactorNode> leftChild) {
     this->leftChild = std::move(leftChild);
 }
 
-void BinaryOperatorNode::setRightChild(std::shared_ptr<ASTNode> rightChild) {
+void BinaryOperatorNode::setRightChild(std::shared_ptr<FactorNode> rightChild) {
     this->rightChild = std::move(rightChild);
 }
 
-std::shared_ptr<ASTNode> BinaryOperatorNode::getLeftChild() const {
+std::shared_ptr<FactorNode> BinaryOperatorNode::getLeftChild() const {
     return leftChild;
 }
 
-std::shared_ptr<ASTNode> BinaryOperatorNode::getRightChild() const {
+std::shared_ptr<FactorNode> BinaryOperatorNode::getRightChild() const {
     return rightChild;
 }
 
