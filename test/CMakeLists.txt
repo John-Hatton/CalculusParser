@@ -1,5 +1,5 @@
 project(Google_Tests)
 
-add_executable(CalculusParser_Tests Lexer/Lexer_tests.cpp ASTNode/BinaryOperatorNode/AddNode/AddNode_tests.cpp ASTNode/FactorNode/NumberNode/NumberNode_tests.cpp ASTNode/FactorNode/FactorNode_tests.cpp ASTNode/FactorNode/VariableNode/VariableNode_tests.cpp ASTNode/ExpressionNode/ExpressionNode_tests.cpp)
+add_executable(CalculusParser_Tests Lexer/Lexer_tests.cpp ASTNode/BinaryOperatorNode/AddNode/AddNode_tests.cpp ASTNode/FactorNode/NumberNode/NumberNode_tests.cpp ASTNode/FactorNode/FactorNode_tests.cpp ASTNode/FactorNode/VariableNode/VariableNode_tests.cpp ASTNode/ExpressionNode/ExpressionNode_tests.cpp ASTNode/TermNode/TermNode_tests.cpp)
 
 target_link_libraries(CalculusParser_Tests CalculusParser gtest gtest_main)
