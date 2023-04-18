@@ -12,14 +12,15 @@ public:
      * ExpressionNode Constructor: creates an expression node with a given token
      * @param token the token that the node represents in the source code
      */
-    explicit ExpressionNode(Token token) : ASTNode(std::move(token)) {}
+    explicit ExpressionNode(Token token) : ASTNode(std::move(token)), exprToken(token) {}
 
 
     /**
      * Move Constructor: creates a new ExpressionNode by moving the given node
      * @param other the ExpressionNode to be moved
      */
-    ExpressionNode(ExpressionNode&& other) noexcept : ASTNode(std::move(other.token)), children(std::move(other.children)) {}
+    ExpressionNode(ExpressionNode &&other) noexcept : ASTNode(std::move(other.token)), children(std::move(other.children)),
+                                                                       exprToken(token) {}
 
     /**
      * addChild: adds a child node to the expression node
@@ -52,6 +53,16 @@ public:
 
 private:
     std::vector<std::shared_ptr<ASTNode>> children;
+    Token exprToken;
+public:
+    const Token &getExprToken() const {
+        return exprToken;
+    }
+
+    void setExprToken(const Token &exprToken) {
+        ExpressionNode::exprToken = exprToken;
+    }
+
 };
 
 #endif //CALCULUSPARSER_EXPRESSIONNODE_H
