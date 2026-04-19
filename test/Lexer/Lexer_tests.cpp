@@ -3,8 +3,8 @@
 //
 
 #include <gtest/gtest.h>
-#include "../source/Lexer/Lexer.cpp"
-#include "../source/Lexer/Token.cpp"
+#include <Lexer/Lexer.hpp>
+#include <Lexer/Token.hpp>
 
 TEST(LexerTests, LexerTests_LexerTests__Test01) {
     Lexer lexer("5.5 - -3.5");

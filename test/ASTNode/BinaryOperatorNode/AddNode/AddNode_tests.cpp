@@ -4,9 +4,9 @@
 #include <gtest/gtest.h>
 
 #include <memory>
-#include "../source/ASTNode/OperatorNode/BinaryOperatorNode/AddNode/AddNode.cpp"
-#include "ASTNode/FactorNode/NumberNode/NumberNode.h"
-#include "ASTNode/FactorNode/VariableNode/VariableNode.h"
+#include <ASTNode/OperatorNode/BinaryOperatorNode/AddNode/AddNode.hpp>
+#include <ASTNode/FactorNode/NumberNode/NumberNode.hpp>
+#include <ASTNode/FactorNode/VariableNode/VariableNode.hpp>
 
 TEST(AddNodeTest, Init) {
     // Create NumberNode objects for the operands
@@ -19,7 +19,7 @@ TEST(AddNodeTest, Init) {
 
     auto factor1 = std::make_shared<FactorNode>(num1, num1->getToken());
     auto factor2 = std::make_shared<FactorNode>(num2, num2->getToken());
-    auto factor3 = std::make_shared<FactorNode>(num3, num2->getToken());
+    auto factor3 = std::make_shared<FactorNode>(num3, num3->getToken());
 
 
     // Create an AddNode object with two integer factors

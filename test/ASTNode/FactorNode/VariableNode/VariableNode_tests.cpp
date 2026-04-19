@@ -2,7 +2,7 @@
 // Created by John on 4/17/2023.
 //
 #include <gtest/gtest.h>
-#include "../source/ASTNode/FactorNode/VariableNode/VariableNode.cpp"
+#include <ASTNode/FactorNode/VariableNode/VariableNode.hpp>
 
 
 TEST(VariableNodeTest, InitTest)

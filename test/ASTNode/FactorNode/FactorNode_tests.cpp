@@ -3,9 +3,9 @@
 //
 
 #include <gtest/gtest.h>
-#include "ASTNode/FactorNode/NumberNode/NumberNode.h"
-#include "ASTNode/FactorNode/VariableNode/VariableNode.h"
-#include "../source/ASTNode/FactorNode/FactorNode.cpp"
+#include <ASTNode/FactorNode/NumberNode/NumberNode.hpp>
+#include <ASTNode/FactorNode/VariableNode/VariableNode.hpp>
+#include <ASTNode/FactorNode/FactorNode.hpp>
 
 
 

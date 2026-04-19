@@ -679,6 +679,9 @@ FodyWeavers.xsd
 cmake-build-debug/
 html/
 latex/
+build/
+out/
+
 
 
 
